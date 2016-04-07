@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Educational Data Integration System">
+    <meta name="author" content="Mauricio Giraldo Ocampo">
+
+    <title>Educational Data Integration</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/stylesheets/metisMenu.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="/stylesheets/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/stylesheets/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/stylesheets/font-awesome.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<div id="wrapper">
+
+    <div class="nav">
+
+        <%- include partials/nav.ejs %>
+    
+    </div>
+
+    <div id="page-wrapper">
+        <%- body %>
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/js/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/sb-admin-2.js"></script>
+
+<!-- DataTables JavaScript -->
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap.min.js"></script>
+<script src="/js/dataTables.responsive.js"></script>
+
+<!-- Scripts -->
+<script src="/js/modifyStyle.js"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>
+
+</body>
+</html>
