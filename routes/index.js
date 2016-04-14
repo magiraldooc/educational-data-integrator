@@ -2,16 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 //Inclusión de los controladores
-var uploadSiaData = require('../controllers/upload_sia_data');
-
+var index = require('../controllers/index_controller');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index');
-});
-
-router.get('sia_processors/process_xls_file', function(req, res, next) {
-    res.render('/sia_processors/process_xls_file');
-});
+router.get('/', index.indexRedirect);
 
 module.exports = router;
