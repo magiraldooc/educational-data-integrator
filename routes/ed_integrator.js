@@ -15,8 +15,10 @@ router.get('/index', function(req, res) {
     res.render('sia_procesors/index');
 });
 
-router.get('/prueba2', function(req, res) {
+router.get('/upload_xls_file', function(req, res) {
     res.render('sia_procesors/process_xls_file');
 });
+
+router.get('/process_xls_file', uploadSiaData.processXlsFile);
 
 module.exports = router;
