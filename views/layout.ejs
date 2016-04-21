@@ -38,6 +38,37 @@
     </div>
 
     <div id="page-wrapper">
+
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Errors</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-danger">
+                            <% if(errors.length > 0){ %>
+                                <span id="errorMsgs">
+                                    Correct mistakes:
+                                    <br>
+                                    <% for(var i in errors){ %>
+                                        <span>
+                                            <%= errors[i] %>
+                                        </span>
+                                        <br>
+                                    <% } %>
+                                </span>
+                            <% } %>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <%- body %>
     </div>
     <!-- /#page-wrapper -->
@@ -71,6 +102,10 @@
         $('#dataTables-example').DataTable({
             responsive: true
         });
+
+        <% if(errors.length > 0){ %>
+            $("#myModal").modal('show');
+        <% } %>
     });
 </script>
 

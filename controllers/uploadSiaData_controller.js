@@ -2,14 +2,52 @@
  * Created by Administrador on 06/04/2016.
  */
 
-//var fs = require('fs');
+var fs = require('fs');
+var csv = require("fast-csv");
 
 exports.indexRedirect = function (req, res) {
     res.redirect('ed_integrator/index');
 };
 
-exports.processXlsFile = function (req, res, next) {
+exports.processFile = function (req, res) {
 
-    console.log(req.files.csvFile);
-    
+    var splitOriginalName = req.file.originalname.split('.');
+
+    var extension = splitOriginalName[splitOriginalName.length - 1];
+
+    var errors = [];
+
+    switch(extension.trim().toLowerCase()) {
+        case 'csv':
+            processCsv(req.file.path);
+            break;
+
+        case 'xls':
+            console.log('Process XLS');
+            break;
+
+        case 'xlsx':
+            console.log('Process XLS');
+            break;
+
+        default:
+            errors.push('File type not permitted: ' + extension.trim().toLowerCase());
+            res.render('sia_procesors/process_file', {
+                errors: errors
+            });
+    }
+
 };
+
+function processCsv(path) {
+
+    csv.fromPath(path)
+        .on('data', function (data) {
+            console.log(data);
+        })
+        .on('end', function () {
+            console.log('read complete');
+        });
+
+    return 0;
+}
