@@ -4,6 +4,7 @@
 
 var fs = require('fs');
 var csv = require("fast-csv");
+var nodeXlsx = require('node-xlsx');
 
 exports.indexRedirect = function (req, res) {
     res.redirect('ed_integrator/index');
@@ -23,11 +24,11 @@ exports.processFile = function (req, res) {
             break;
 
         case 'xls':
-            console.log('Process XLS');
+            processXls(req.file.path);
             break;
 
         case 'xlsx':
-            console.log('Process XLS');
+            processXls(req.file.path);
             break;
 
         default:
@@ -50,4 +51,14 @@ function processCsv(path) {
         });
 
     return 0;
+}
+
+function processXls(path) {
+
+    var object = nodeXlsx.parse(path);
+
+    console.log(object);
+
+    return 0;
+
 }

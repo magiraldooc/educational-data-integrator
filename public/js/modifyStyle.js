@@ -206,7 +206,7 @@ function highContrast(){
             activeHC = valueSelected;
         }
 
-        $.each(selectors, function(){
+        $.each(selectors, function(){ 
 
             this.removeClass(activeHC);
             this.addClass(valueSelected);
